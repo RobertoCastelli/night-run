@@ -1,0 +1,143 @@
+header {
+    text-align: center;
+    color: lightgray;
+}
+
+body {
+    color: #35495e;
+    background: url('img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+h6 {
+    font-weight: bold;
+}
+
+
+img {
+    width: 150px;
+    border-radius: 5px;
+}
+
+
+.container {
+    max-width: 500px;
+    background: linear-gradient(lightgrey, white, lightgrey);
+    padding-top: 30px;
+    border-radius: 15px;
+    border: 1px solid #35495e;
+}
+
+.coordinates {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.coordinates p {
+    display: inline-flex;
+    padding-right: 10px;
+}
+
+.status {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress {
+    width: 200px;
+    height: 30px;
+    margin: 10px 10px;
+    border: 1px solid #35495e;
+ 
+}
+
+.progress-bar {
+    color: #35495e;
+    text-align: center;
+}
+
+.logs {
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.actions button {
+    box-shadow: 2px 5px 5px #35495e;
+    border-radius: 10px;
+    color: #35495e;
+}
+
+.actions button:active{
+    box-shadow: 1px 1px 1px #35495e;
+    transform: translateY(4px);
+}
+
+.actions button:focus {
+    outline: none;
+}
+
+.actions button:hover {
+    background: white;
+    color: brown;
+}
+
+.actions {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#up {
+    grid-column: 2;
+}
+
+#sx {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#dw {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#dx {
+    grid-column: 3;
+    grid-row: 2;
+
+}
+#quit {
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: center;
+    align-self: center;
+}
+
+#run {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+#rest {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: center;
+    align-self: center;
+}
+#fight {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+
+
+
+
