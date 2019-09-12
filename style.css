@@ -5,7 +5,7 @@ header {
 
 body {
     color: #35495e;
-    background: url('img/bg.jpg');
+    background: url('img/events/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -19,6 +19,7 @@ h6 {
 
 img {
     width: 150px;
+    height: 150px;
     border-radius: 5px;
 }
 
@@ -52,12 +53,10 @@ img {
     height: 30px;
     margin: 10px 10px;
     border: 1px solid #35495e;
- 
 }
 
 .progress-bar {
     color: #35495e;
-    text-align: center;
 }
 
 .logs {
@@ -83,6 +82,13 @@ img {
 .actions button:hover {
     background: white;
     color: brown;
+}
+ 
+.actions button:disabled {
+    opacity: 0.5;
+     box-shadow: 1px 1px 1px #35495e;
+     transform: translateY(0px);
+     
 }
 
 .actions {
@@ -110,7 +116,7 @@ img {
     grid-row: 2;
 
 }
-#quit {
+#luck {
     grid-column: 3;
     grid-row: 3;
     justify-self: center;
