@@ -13,7 +13,8 @@ const maps = [
         btnDisableFight: false,
         btnDisableRun: false,
         btnDisableRest: true,
-        btnDisableLuck: false
+        btnDisableLuck: false,
+        btnDisableRoll: true
     },
     {
         location: 'MAPPA 1',
@@ -27,7 +28,8 @@ const maps = [
         btnDisableSx: true,
         btnDisableFight: true,
         btnDisableRun: true,
-        btnDisableLuck: true
+        btnDisableLuck: true,
+        btnDisableRoll: true
     },
     {
         location: 'MAPPA 2',
@@ -41,7 +43,8 @@ const maps = [
         btnDisableSx: true,
         btnDisableFight: true,
         btnDisableRun: true,
-        btnDisableLuck: true
+        btnDisableLuck: true,
+        btnDisableRoll: true
     },
     {
         location: 'MAPPA 3',
@@ -55,7 +58,8 @@ const maps = [
         btnDisableSx: false,
         btnDisableFight: true,
         btnDisableRun: true,
-        btnDisableLuck: true
+        btnDisableLuck: true,
+        btnDisableRoll: true
     }
 ]
 

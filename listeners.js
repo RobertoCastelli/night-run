@@ -2,7 +2,7 @@
 up.addEventListener('click', () => {
     x++;
     posX.innerText = x;
-    renderStamina();
+    renderStamina(10);
     renderPosition();
     renderMap();
 });
@@ -10,7 +10,7 @@ up.addEventListener('click', () => {
 dw.addEventListener('click', () => {
     x--;
     posX.innerText = x;
-    renderStamina();
+    renderStamina(10);
     renderPosition();
     renderMap();
 });
@@ -18,7 +18,7 @@ dw.addEventListener('click', () => {
 dx.addEventListener('click', () => {
     y++;
     posY.innerText = y;
-    renderStamina();
+    renderStamina(10);
     renderPosition();
     renderMap();
 });
@@ -26,15 +26,15 @@ dx.addEventListener('click', () => {
 sx.addEventListener('click', () => {
     y--;
     posY.innerText = y;
-    renderStamina();
+    renderStamina(10);
     renderPosition();
     renderMap();
 });
 
 rest.addEventListener('click', () => {
     let hoursRest = prompt('how many hours you want to rest? ');
-    healthLeft += (healthRatio + (hoursRest * statusMultiplier / 2));
-    staminaLeft += (staminaRatio + (hoursRest * statusMultiplier));
+    healthLeft += (10 + (hoursRest * statusMultiplier / 2));
+    staminaLeft += (10 + (hoursRest * statusMultiplier));
     health.style.width = `${healthLeft}%`;
     renderStamina();
 });
@@ -47,6 +47,7 @@ luck.addEventListener('click', () => {
             log.innerText = 'You feel refreshed'
             stamina.style.width = '100%';
             health.style.width = '100%';
+            luck.disabled = true;
         }, 1500);
     } else {
         log.innerText = 'Your nightmare is restarting'
@@ -70,6 +71,7 @@ run.addEventListener('click', () => {
         posY.innerText = y;
         position = [x, y]
         renderMap();
+        renderStamina(30)
         log.innerText = 'Your run desperate for your life'
     } else {
         log.innerText = 'You try to run, with no success'
@@ -77,3 +79,25 @@ run.addEventListener('click', () => {
     }
 });
 
+fight.addEventListener('click', () => {
+    renderMonster()
+    run.disabled = true;
+    luck.disabled = true;
+});
+
+roll.addEventListener('click', () => {
+    let myDamage = diceRoll(20);
+    newMonster.health -= myDamage;
+    log.innerText = newMonster.description;
+    log.innerText = `You hit for ${myDamage}. Mob health's ${newMonster.health}`;
+    monsterAttack();
+    if (newMonster.health <= 0) {
+        renderPosition();
+        renderMap();
+        up.disabled = false;
+        run.disabled = true;
+        fight.disabled = true;
+        luck.disabled = true;
+        log.innerText = 'You continue your walk'
+    }
+});

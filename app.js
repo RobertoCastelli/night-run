@@ -15,6 +15,10 @@ let rest = document.getElementById('rest');
 let luck = document.getElementById('luck');
 let run = document.getElementById('run');
 let fight = document.getElementById('fight');
+let roll = document.getElementById('roll');
+
+let dice;
+let newMonster;
 
 // INIT IMAGE
 img.src = 'img/maps/start-woods.jpg';
@@ -25,12 +29,13 @@ let y = 0;
 posX.innerText = x;
 posY.innerText = y;
 
+// COORDINATES
+let position = [x, y];
+
 // INIT STATUS
 let statusMultiplier = 10;
 let staminaLeft = 100;
-let staminaRatio = 10;
 let healthLeft = 70;
-let healthRatio = 10;
 stamina.style.width = `${staminaLeft}%`;
 health.style.width = `${healthLeft}%`;
 
@@ -43,16 +48,13 @@ fight.disabled = true;
 run.disabled = true;
 rest.disabled = false;
 luck.disabled = true;
+roll.disabled = true;
 
 // INIT MESSAGE
 let logStart = "You don't remember anything, your head hurts and some blood is leaking";
 log.innerText = logStart;
 
-// COORDINATES
-let position = [x, y];
 
-// A SIMPLE DICE :)
-let dice;
 
 
 
