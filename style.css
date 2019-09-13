@@ -16,13 +16,19 @@ h6 {
     font-weight: bold;
 }
 
-
 img {
     width: 150px;
     height: 150px;
     border-radius: 5px;
+    border: 1px solid #35495e;
 }
 
+footer {
+    background: black;
+    color: white;
+    opacity: 0.5;
+    text-align: center;
+}
 
 .container {
     max-width: 500px;
@@ -48,6 +54,21 @@ img {
     justify-content: space-between;
 }
 
+#health {
+    color: brown;
+    font-weight: bold;
+}
+
+#stamina {
+    color: blue;
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .progress {
     width: 200px;
     height: 30px;
@@ -57,41 +78,64 @@ img {
 
 .progress-bar {
     color: #35495e;
+
 }
 
 .logs {
-    padding-bottom: 30px;
-    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 .actions button {
     box-shadow: 2px 5px 5px #35495e;
     border-radius: 10px;
     color: #35495e;
+    height: 40px;
+    width: 40px;
 }
 
-.actions button:active{
+.movements button {
+    box-shadow: 2px 5px 5px #35495e;
+    border-radius: 10px;
+    color: #35495e;
+}
+
+.actions button:active,
+.movements button:active
+{
     box-shadow: 1px 1px 1px #35495e;
     transform: translateY(4px);
 }
 
-.actions button:focus {
+.actions button:focus,
+.movements button:focus
+ {
     outline: none;
 }
 
-.actions button:hover {
+.actions button:hover,
+.movements button:hover
+ {
     background: white;
     color: brown;
 }
  
-.actions button:disabled {
+.actions button:disabled,
+.movements button:disabled {
     opacity: 0.5;
-     box-shadow: 1px 1px 1px #35495e;
-     transform: translateY(0px);
-     
+    box-shadow: 1px 1px 1px #35495e;
+    transform: translateY(0px);
+    color: #35495e !important;
+    background: lightgray;
 }
 
 .actions {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.movements {
     display: grid;
     gap: 5px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -114,31 +158,60 @@ img {
 #dx {
     grid-column: 3;
     grid-row: 2;
-
 }
-#luck {
+
+#key {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#armor {
     grid-column: 3;
+    grid-row: 1;
+}
+#weapon {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#pray {
+    grid-column: 2;
     grid-row: 3;
     justify-self: center;
     align-self: center;
 }
 
 #run {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: center;
-    align-self: center;
-}
-
-#rest {
     grid-column: 1;
     grid-row: 3;
     justify-self: center;
     align-self: center;
 }
+
 #fight {
     grid-column: 1;
     grid-row: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+#roll {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+#search {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+    align-self: center;
+}
+
+#rest {
+    grid-column: 2;
+    grid-row: 2;
     justify-self: center;
     align-self: center;
 }

@@ -43,48 +43,48 @@
                 <p id="description">The woodland seemed ominously quiet.</p>
             </div>
         </div>
-
-        <div class="actions col-6 mx-auto">
-            <button id="sx"><i class="fas fa-angle-left fa-3x"></i></button>
-            <button id="up"><i class="fas fa-angle-up fa-3x"></i></button>
-            <button id="dx"><i class="fas fa-angle-right fa-3x"></i></button>
-            <button id="dw"><i class="fas fa-angle-down fa-3x"></i></button>
-            <button id="run"><i class="fas fa-running"></i></button>
-            <button id="fight"><i class="fas fa-fist-raised"></i></button>
-            <button id="rest"><i class="fas fa-hourglass-end"></i></button>
-            <button id="luck"><i class="fas fa-pray"></i></button>
-            <button id="roll"><i class="fas fa-dice fa-lg"></i></button>
-        </div>
-
-        <div class="status">
-            <div class="progress">
-                <div id="health" class="progress-bar bg-danger" role="progressbar" aria-valuemin="0"
-                    aria-valuemax="100">HEALTH</div>
-            </div>
-            <div class="progress">
-                <div id="stamina" class="progress-bar bg-info" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                    STAMINA</div>
+        <div class="buttons">
+            <div class="movements col-6">
+                <button id="sx"><i class="fas fa-angle-left fa-3x"></i></button>
+                <button id="up"><i class="fas fa-angle-up fa-3x"></i></button>
+                <button id="dx"><i class="fas fa-angle-right fa-3x"></i></button>
+                <button id="dw"><i class="fas fa-angle-down fa-3x"></i></button>
+                <button id="weapon"><i class="fas fa-hammer fa-2x"></i></button>
+                <button id="armor"><i class="fas fa-shield-alt fa-2x"></i></button>
+                <button id="key"><i class="fas fa-eye fa-2x"></i></button>
             </div>
 
+            <div class="actions col-6">
+                <button id="run"><i class="fas fa-running"></i></button>
+                <button id="fight"><i class="fas fa-fist-raised"></i></button>
+                <button id="rest"><i class="fas fa-hourglass-end"></i></button>
+                <button id="pray"><i class="fas fa-pray"></i></button>
+                <button id="roll"><i class="fas fa-dice fa-lg"></i></button>
+                <button id="search"><i class="fas fa-search"></i></button>
+            </div>
         </div>
+
+        <div class="status col-8">
+            <p>Health: </p><span id="health"></span>
+            <p>Stamina: </p><span id="stamina"></span>
+        </div>
+
+        <hr>
 
         <div class="logs">
-            <div class="events">
-                <h6>EVENT</h6>
-                <p id="log"></p>
-            </div>
+            <p id="log"></p>
         </div>
     </div>
 
-    <footer class="text-center my-5 bg-dark" style="color: lightgray">
+    <footer class="my-5">
         copyright &copy; 2019 Roberto Castelli - www.robertocastelli.dev
     </footer>
 
-    <script src="map.js"></script>
-    <script src="monsters.js"></script>
-    <script src="functions.js"></script>
-    <script src="listeners.js"></script>
-    <script src="app.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/monsters.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/init.js"></script>
 
 </body>
 
