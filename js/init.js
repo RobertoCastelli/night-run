@@ -1,9 +1,9 @@
 /**
  * storia --> occhio --> libro --> sylbol --> pozzo --> combattimento finale --> rituale
  * fare guida
- * errore su health dei moster (urgente)
  * search: > % rischio < % trovare oggetti
  * sistema di score
+ * inserire UL per i log
  * inserire animazioni --> musica --> pop up --> barre energia/vita
  * finale
  */
@@ -32,13 +32,11 @@ let weapon = document.getElementById('weapon');
 let key = document.getElementById('key');
 let book = document.getElementById('book');
 let guide = document.getElementById('guide');
-let body = document.getElementById('body');
 
 // CONTAINERS
 let dice;
 let newMonster;
 let newMap;
-let arrayMonsters = [];
 
 // INIT STATUS
 let healthValue = 100;
@@ -56,11 +54,11 @@ let activeBook = 0;
 let activeEye = 0;
 let healthRatioRest = 10;
 let staminaRatioRest = 10;
-let staminaRatioMove = 10;
+let staminaRatioMove = 5;
 let staminaRatioRun = 30;
 let staminaRatioAttack = 5;
 let staminaRatioSearch = 10;
-let hammerDamage = 20;
+let hammerDamage = 5;
 let armourDefence = 0;
 renderStamina();
 renderHealth();

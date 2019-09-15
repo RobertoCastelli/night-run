@@ -65,7 +65,7 @@ function monsterAttack() {
         if (newMonster.health >= 0) {
             monsterDamage = (diceRoll(6) + newMonster.damage - armourDefence);
             healthValue -= monsterDamage;
-            textAnimation(`> The Mob hits You for ${monsterDamage}`, 2000);
+            textAnimation(`> The Mob hits for ${monsterDamage}`, 2000);
             checkStatus();
             renderHealth();
         }
@@ -88,7 +88,7 @@ function heroAttack(ratio) {
     textAnimation(`> You hit for ${myDamage + ratio}`, 2000);
     checkStatus();
     if (newMonster.health <= 0) monsterDeath();
-};
+}
 
 function heroDeath() {
     textAnimation(`> Your nightmare is restarting`, 3000);
@@ -173,27 +173,41 @@ function activateHiddenButton(button) {
 
 function finalEvent() {
     if (activeBook == 1 && activeEye == 1) {
-        textAnimation('You start the ritual', 2000);
+        textAnimation('You start the ritual. No escape', 2000);
         book.classList.add('glow');
         search.disabled = true;
         rest.disabled = true;
         fight.disabled = false;
+        sx.disabled = true;
     }
     else if (activeBook == 1 && activeEye == 0) {
-        textAnimation('You start reading. No REST or PREYers can save you', 2000);
+        textAnimation('You start reading...', 2000);
         book.disabled = false;
-        healthValue -= 30;
+        sx.disabled = true;
+        search.disabled = true;
+        let migraine = setInterval(() => {
+            healthValue -= 1;
+            rest.disabled = true;
+            log.innerText = 'You feel pain...'
+            renderHealth();
+            checkStatus();
+        }, 1000);
+        setTimeout(() => {
+            sx.disabled = false;
+            clearInterval(migraine);
+            textAnimation('Finally You find a way out', 2000);
+        }, 10000);
         activeBook = 0;
-        renderHealth();
         renderStamina();
-        checkStatus();
     }
     else if (activeBook == 0 && activeEye == 1) {
-        textAnimation('Trees crumble blocking the path to the WEST', 2000);
-        sx.disabled = true;
         eye.classList.add('glow');
+        textAnimation('You insert the eye in the portal...', 2000);
     }
 }
+
+
+
 
 
 
