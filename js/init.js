@@ -1,9 +1,10 @@
 /**
- * storia
- * search con % di rischio dinamica
- * raccolta oggetti
- * animazioni
- * musica
+ * storia --> occhio --> libro --> sylbol --> pozzo --> combattimento finale --> rituale
+ * fare guida
+ * errore su health dei moster
+ * search: > % rischio < % trovare oggetti
+ * sistema di score
+ * inserire animazioni --> musica --> pop up --> barre energia/vita
  * finale
  */
 
@@ -26,50 +27,44 @@ let run = document.getElementById('run');
 let fight = document.getElementById('fight');
 let roll = document.getElementById('roll');
 let search = document.getElementById('search');
-let armor = document.getElementById('armor');
+let armour = document.getElementById('armor');
 let weapon = document.getElementById('weapon');
 let key = document.getElementById('key');
+let book = document.getElementById('book');
+let guide = document.getElementById('guide');
+let body = document.getElementById('body');
 
 // CONTAINERS
 let dice;
 let newMonster;
+let newMap;
 
-// INIT IMAGE
-img.src = 'img/maps/start-woods.jpg';
+// INIT STATUS
+let healthValue = 100;
+let staminaValue = 100;
+let score = 0;
 
 // INIT POSITION
 let x = 0;
 let y = 0;
 posX.innerText = x;
 posY.innerText = y;
-
-// COORDINATES
 let position = [x, y];
 
-// INIT STATUS
-let healthValue = 100;
-let staminaValue = 100;
-let statusMultiplier = 10;
-renderStamina(0);
-renderHealth(0);
+// TWEAKINGS
+let healthRatioRest = 10;
+let staminaRatioRest = 10;
+let staminaRatioMove = 10;
+let staminaRatioRun = 30;
+let staminaRatioAttack = 5;
+let staminaRatioSearch = 8;
+let hammerDamage = 0;
+let armourDefence = 0;
+renderStamina();
+renderHealth();
+renderMap();
 
-// INIT BUTTONS
-sx.disabled = false;
-dw.disabled = true;
-up.disabled = false;
-dx.disabled = false;
-fight.disabled = true;
-run.disabled = true;
-rest.disabled = false;
-pray.disabled = true;
-roll.disabled = true;
-weapon.disabled = true;
-key.disabled = true;
-armor.disabled = true;
 
-// INIT MESSAGE
-let logStart = "> You don't remember anything";
-log.innerText = logStart;
 
 
 

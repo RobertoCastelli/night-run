@@ -2,67 +2,74 @@
 up.addEventListener('click', () => {
     x++;
     posX.innerText = x;
-    renderStamina(10);
+    staminaValue -= staminaRatioMove;
+    checkStatus();
+    renderStamina();
     renderPosition();
     renderMap();
-    checkStatus();
 });
 
 dw.addEventListener('click', () => {
     x--;
     posX.innerText = x;
-    renderStamina(10);
+    staminaValue -= staminaRatioMove;
+    checkStatus();
+    renderStamina();
     renderPosition();
     renderMap();
-    checkStatus();
 });
 
 dx.addEventListener('click', () => {
     y++;
     posY.innerText = y;
-    renderStamina(10);
+    staminaValue -= staminaRatioMove;
+    checkStatus();
+    renderStamina();
     renderPosition();
     renderMap();
-    checkStatus();
 });
 
 sx.addEventListener('click', () => {
     y--;
     posY.innerText = y;
-    renderStamina(10);
+    staminaValue -= staminaRatioMove;
+    checkStatus();
+    renderStamina();
     renderPosition();
     renderMap();
-    checkStatus();
 });
 
 rest.addEventListener('click', () => {
     let hoursRest = prompt('> how many hours you want to rest? ', 'More your rest, more the risk');
     let dice = diceRoll(100);
-    if (dice <= 10 + (4 * hoursRest)) {
+    console.log(dice)
+    if (dice <= (5 * hoursRest)) {
         position = [10, 10];
         renderMap();
     } else {
+        healthValue += Math.floor(healthValue * (hoursRest / staminaRatioRest));
+        staminaValue += Math.floor(staminaValue * (hoursRest / healthRatioRest));
         textAnimation(`You sleep ${hoursRest} hours and feel better`, 2000);
-        healthValue += (hoursRest * statusMultiplier);
-        staminaValue += (hoursRest * statusMultiplier);
+        console.log(Math.floor(staminaValue * (hoursRest / healthRatioRest)))
     }
     checkStatus();
-    renderHealth(0);
-    renderStamina(0);
+    renderHealth();
+    renderStamina();
     rest.disabled = true;
 });
 
 pray.addEventListener('click', () => diceRoll(12) % 2 != 0 ? heroRevive() : heroDeath());
 
 run.addEventListener('click', () => {
-    if (diceRoll(12) % 2 != 0) {
+    if (diceRoll(100) <= 30) {
         x = diceRoll(2);
         y = diceRoll(2);
         posX.innerText = x;
         posY.innerText = y;
+        staminaValue -= staminaRatioRun;
         renderPosition();
         renderMap();
-        renderStamina(30);
+        renderStamina();
         textAnimation('> Your run desperate for your life', 2000);
     } else {
         textAnimation('> You try to run, with no success', 2000);
@@ -78,20 +85,49 @@ fight.addEventListener('click', () => {
 });
 
 roll.addEventListener('click', () => {
-    heroAttack();
+    heroAttack(hammerDamage);
     monsterAttack();
 });
 
+eye.addEventListener('click', () => {
+    textAnimation('a wired pendant with incarved a green stone', 2000);
+})
+
 search.addEventListener('click', () => {
-    search.disabled = true;
-    renderStamina(10);
-    let dice = diceRoll(100);
-    if (dice <= 10) {
-        position = [10, 10];
-        renderMap();
-    } else if (dice <= 30) {
-        textAnimation('> You found a crowbar!', 2000);
-    } else {
-        textAnimation('> Nothing happens', 2000);
-    }
+    staminaValue -= staminaRatioSearch;
+    renderStamina();
+    checkEvent();
+    setTimeout(() => {
+        let dice = diceRoll(4);
+        switch (dice) {
+            case 0:
+            case 1:
+                checkItems(weapon);
+                break;
+            case 2:
+            case 3:
+                checkItems(armor);
+                break;
+            default:
+                textAnimation('You find nothing interesting', 2000);
+        }
+    }, 2000);
 });
+
+weapon.addEventListener('click', () => {
+    weapon.disabled = true;
+    weapon.style.color = 'red';
+    hammerDamage = 20;
+    textAnimation('You brandish a nice hammer. You feel the power', 2000);
+});
+
+armor.addEventListener('click', () => {
+    armor.disabled = true;
+    armor.style.color = 'red';
+    armourDefence = 20;
+    textAnimation('You wear a nice leather jacket. You look cool', 2000);
+});
+
+guide.addEventListener('click', () => {
+    alert('Go around and survive, I will put a nice guide later');
+})

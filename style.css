@@ -1,15 +1,24 @@
 header {
     text-align: center;
-    color: lightgray;
+    color: rgb(169, 169, 169);
 }
 
 body {
-    color: #35495e;
+    color: rgb(169, 169, 169);
     background: url('img/events/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 100%;
+    letter-spacing: 0.1em;
+    animation-name: start;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes start {
+    from {opacity: 0.1;}
+    to {opacity: 1;}
 }
 
 h6 {
@@ -20,22 +29,20 @@ img {
     width: 150px;
     height: 150px;
     border-radius: 5px;
-    border: 1px solid #35495e;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 footer {
-    background: black;
-    color: white;
-    opacity: 0.5;
+    background: rgb(0, 0, 0, 0.5);
+    color: rgb(169, 169, 169);
     text-align: center;
 }
 
 .container {
     max-width: 500px;
-    background: linear-gradient(lightgrey, white, lightgrey);
+    background: rgb(0, 0, 0, 0.5);
     padding-top: 30px;
     border-radius: 15px;
-    border: 1px solid #35495e;
 }
 
 .coordinates {
@@ -55,12 +62,12 @@ footer {
 }
 
 #health {
-    color: brown;
+    color: rgb(255, 0, 0);
     font-weight: bold;
 }
 
 #stamina {
-    color: blue;
+    color: rgb(0, 255, 0);
     font-weight: bold;
 }
 
@@ -69,21 +76,20 @@ footer {
     justify-content: space-between;
 }
 
-.progress {
-    width: 200px;
-    height: 30px;
-    margin: 10px 10px;
-    border: 1px solid #35495e;
-}
-
-.progress-bar {
-    color: #35495e;
-
-}
-
 .logs {
     padding-bottom: 20px;
     padding-top: 10px;
+}
+
+#guide, 
+#book, 
+#weapon, 
+#armor, 
+#eye {
+    justify-self: center;
+    align-self: center;
+    height: 40px;
+    width: 40px;
 }
 
 .actions button {
@@ -92,12 +98,12 @@ footer {
     color: #35495e;
     height: 40px;
     width: 40px;
-}
 
+}
 .movements button {
     box-shadow: 2px 5px 5px #35495e;
     border-radius: 10px;
-    color: #35495e;
+    color: #456281;
 }
 
 .actions button:active,
@@ -116,8 +122,8 @@ footer {
 .actions button:hover,
 .movements button:hover
  {
-    background: white;
-    color: brown;
+    background: rgb(255, 255, 255);
+    color: rgb(255, 0, 0);
 }
  
 .actions button:disabled,
@@ -125,8 +131,8 @@ footer {
     opacity: 0.5;
     box-shadow: 1px 1px 1px #35495e;
     transform: translateY(0px);
-    color: #35495e !important;
-    background: lightgray;
+    color: #35495e;
+    background: rgb(169, 169, 169);
 }
 
 .actions {
@@ -160,18 +166,31 @@ footer {
     grid-row: 2;
 }
 
-#key {
-    grid-column: 2;
-    grid-row: 2;
+#eye {
+    grid-column: 1;
+    grid-row: 3;
+  
 }
 
 #armor {
     grid-column: 3;
     grid-row: 1;
 }
+
 #weapon {
     grid-column: 1;
     grid-row: 1;
+}
+
+#book {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+#guide {
+    grid-column: 2;
+    grid-row: 2;
+    
 }
 
 #pray {
@@ -215,8 +234,5 @@ footer {
     justify-self: center;
     align-self: center;
 }
-
-
-
 
 

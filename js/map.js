@@ -2,24 +2,28 @@
 const maps = [
     {
         location: 'MAPPA 0',
-        description: 'Inizio',
+        description: 'Your eyes open...These rays of light that penetrate the darkness are a blessing. However there something hidden in this abnormal quietness. Where am I?',
         position: [0, 0],
         image: 'img/maps/start-woods.jpg',
-        log: '> You feel dizzy is this the starting point?',
+        log: '>',
         btnDisableUp: false,
         btnDisableDw: true,
         btnDisableDx: false,
         btnDisableSx: false,
         btnDisableFight: true,
-        btnDisableFight: true,
         btnDisableRun: true,
         btnDisablePray: true,
-        btnDisableRoll: false,
-        btnDisableSearch: false
+        btnDisableRoll: true,
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 1',
-        description: 'Forest',
+        description: 'Trees trees and more trees. A beam of light comes through the bare branches. Powerless in this never ending forest.',
         position: [1, 0],
         image: 'img/maps/map_01_00.jpg',
         log: '>',
@@ -31,11 +35,16 @@ const maps = [
         btnDisableRun: true,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 2',
-        description: 'Forest',
+        description: 'It seems that this thick blanket covering the path and the surge of light is a living thing, blinding every living creature',
         position: [1, 1],
         image: 'img/maps/map_01_01.jpg',
         log: '>',
@@ -47,11 +56,16 @@ const maps = [
         btnDisableRun: true,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 3',
-        description: 'Forest',
+        description: 'You think there is a lonely woman lost and desperate in the midst of nowhere, or is it just You...',
         position: [0, 1],
         image: 'img/maps/map_00_01.jpg',
         log: '>',
@@ -63,16 +77,21 @@ const maps = [
         btnDisableRun: true,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 4',
-        description: 'Well',
+        description: 'Not long since there was a time that the well was in full use and need. The tiny bird is hopeful and patient.',
         position: [-1, 1],
         image: 'img/maps/well_-01_01.jpg',
         log: '>',
         btnDisableUp: false,
-        btnDisableDw: false,
+        btnDisableDw: true,
         btnDisableDx: false,
         btnDisableSx: true,
         btnDisableFight: true,
@@ -80,11 +99,16 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 5',
-        description: 'forest',
+        description: 'The dead leaves cover the lifeless path. Every step makes the ground scream aloud your presence. You feel uncomfortable in the poor light  that filters timidly.',
         position: [-1, 2],
         image: 'img/maps/map_-01_02.jpg',
         log: '>',
@@ -97,11 +121,16 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 6',
-        description: 'Forest',
+        description: 'In the distance a misty fog had enveloped the area. The shape of a person appeared running towards North. The animals strangely were silent.',
         position: [0, 2],
         image: 'img/maps/beggar_00_02.jpg',
         log: '>',
@@ -114,11 +143,16 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 7',
-        description: 'Forest',
+        description: 'The feeling was ominous. Rays of light filtered through the trees. The branches yielded to the slight breeze.',
         position: [1, 2],
         image: 'img/maps/beggar_01_02.jpg',
         log: '>',
@@ -131,11 +165,16 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 8',
-        description: 'Home',
+        description: 'A homely cottage with some signs of life. No smoke appears from the chimney. Even though the damp and cold would necessitate some warmth. A weird feeling. Was this a noose?',
         position: [0, -1],
         image: 'img/maps/map_00_-01.jpg',
         log: '>',
@@ -148,11 +187,16 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 9',
-        description: 'Symbol',
+        description: 'Sticks that seem to have been tied in an haphazard method in actual fact have an ominous and mystical explanation. Who and why ??',
         position: [2, 2],
         image: 'img/maps/map_02_02.jpg',
         log: '>',
@@ -165,11 +209,16 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 10',
-        description: 'Door',
+        description: 'An old abandoned wooden door. Unkempt and deserted. The iron knocker in disuse and no longer heard. ',
         position: [0, -2],
         image: 'img/maps/map_00_-02.jpg',
         log: '>',
@@ -182,11 +231,16 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 11',
-        description: 'Portal',
+        description: 'In the midst of this forest unexpected life comes to being. A round emerald green vibrant ball sizzles and rotates. A figure hunched motionless.',
         position: [2, 3],
         image: 'img/maps/map_02_03.jpg',
         log: '>',
@@ -199,11 +253,16 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'MAPPA 12',
-        description: 'Home inside',
+        description: 'The lady in white looks anxious, distrought and helpless. A single cosy wrought iron bed. A portait of a white cat stands proudly on the mantelpiece The bedside light adequate. The windows dressed with laced curtains allow some natural light flow.',
         position: [-1, -2],
         image: 'img/maps/map_-01_-02.jpg',
         log: '>',
@@ -216,13 +275,18 @@ const maps = [
         btnDisableRest: false,
         btnDisablePray: true,
         btnDisableRoll: true,
-        btnDisableSearch: false
+        btnDisableSearch: false,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     },
     {
         location: 'INCUBO',
         description: 'Wake up',
         position: [10, 10],
-        image: 'img/mobs/mob00-00.jpg',
+        image: 'img/events/incubo.jpg',
         log: '>',
         btnDisableUp: true,
         btnDisableDw: true,
@@ -233,7 +297,34 @@ const maps = [
         btnDisableRest: true,
         btnDisablePray: false,
         btnDisableRoll: true,
-        btnDisableSearch: true
+        btnDisableSearch: true,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
+    },
+    {
+        location: 'FINAL BOSS',
+        description: 'Wake up',
+        position: [20, 20],
+        image: 'img/events/incubo.jpg',
+        log: '>',
+        btnDisableUp: true,
+        btnDisableDw: true,
+        btnDisableDx: true,
+        btnDisableSx: true,
+        btnDisableFight: true,
+        btnDisableRun: true,
+        btnDisableRest: true,
+        btnDisablePray: false,
+        btnDisableRoll: false,
+        btnDisableSearch: true,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
     }
 ]
 

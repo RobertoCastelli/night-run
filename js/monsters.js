@@ -1,23 +1,23 @@
 const monsters = [
     {
         name: 'Jason',
-        description: 'Very powerful',
-        health: 60,
-        damage: 20,
+        description: 'A tank',
+        health: 120,
+        damage: 0,
         image: '/img/mobs/jason.jpg'
     },
     {
         name: 'Freddy',
-        description: 'Very powerful',
+        description: 'A brawler',
         health: 60,
-        damage: 10,
+        damage: 5,
         image: '/img/mobs/freddy.jpg'
     },
     {
         name: 'Hellraiser',
-        description: 'Very powerful',
-        health: 60,
-        damage: 30,
+        description: 'A killer',
+        health: 80,
+        damage: 5,
         image: '/img/mobs/hellraiser.jpg'
     }
 ]

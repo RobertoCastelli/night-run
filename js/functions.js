@@ -1,30 +1,30 @@
 function init() {
     location.reload(true);
-}
+};
 
 function diceRoll(range) {
     let diceRoll = Math.floor(Math.random() * range);
     return diceRoll;
-}
+};
 
 function renderPosition() {
     position[0] = x
     position[1] = y
     console.log(position)
-}
+};
 
-function renderStamina(ratio) {
-    staminaValue -= ratio;
+function renderStamina() {
     stamina.innerText = staminaValue;
-}
 
-function renderHealth(ratio) {
-    healthValue -= ratio;
+};
+
+function renderHealth() {
     health.innerText = healthValue;
-}
+
+};
 
 function renderMap() {
-    let newMap = maps
+    newMap = maps
         .filter(element => JSON.stringify(element.position) == JSON.stringify(position));
     loc.innerText = newMap[0].location;
     desc.innerText = newMap[0].description;
@@ -40,7 +40,12 @@ function renderMap() {
     pray.disabled = newMap[0].btnDisablePray;
     roll.disabled = newMap[0].btnDisableRoll;
     search.disabled = newMap[0].btnDisableSearch;
-}
+    book.hidden = newMap[0].btnDisableBook;
+    eye.hidden = newMap[0].btnDisableEye;
+    guide.disabled = newMap[0].btnDisableGuide;
+    armor.hidden = newMap[0].btnDisableArmor;
+    weapon.hidden = newMap[0].btnDisableWeapon;
+};
 
 function renderMonster() {
     dice = diceRoll(3);
@@ -50,94 +55,120 @@ function renderMonster() {
     desc.innerText = newMonster.description;
     fight.disabled = true;
     roll.disabled = false;
-}
+};
 
 function monsterAttack() {
     setTimeout(() => {
         if (newMonster.health >= 0) {
-            monsterDamage = (diceRoll(6) + newMonster.damage)
+            monsterDamage = (diceRoll(10) + newMonster.damage - armourDefence);
             healthValue -= monsterDamage;
             textAnimation(`> The Mob hits You for ${monsterDamage}`, 2000);
-            renderHealth(0);
             checkStatus();
+            renderHealth();
         }
     }, 2000);
-
-}
+};
 function monsterDeath() {
-    renderPosition();
-    renderMap();
-    up.disabled = false;
-    run.disabled = true;
-    fight.disabled = true;
-    pray.disabled = true;
-    textAnimation('> You slay the monster. You continue your walk', 3000);
-}
+    score += 10;
+    img.src = 'img/events/monsterDeath.jpg';
+    textAnimation('> You slay the monster.', 2000);
+    setTimeout(() => {
+        renderPosition();
+        renderMap();
+    }, 2000);
+};
 
-function heroAttack() {
-    renderStamina(10);
-    let myDamage = diceRoll(20);
-    newMonster.health -= myDamage;
-    textAnimation(`> You hit for ${myDamage}`, 2000);
+function heroAttack(ratio) {
+    staminaValue -= staminaRatioAttack;
+    renderStamina();
+    let myDamage = diceRoll(10);
+    newMonster.health -= (myDamage + ratio);
+    textAnimation(`> You hit for ${myDamage + ratio}`, 2000);
     checkStatus();
     if (newMonster.health <= 0) monsterDeath();
-}
+};
 
 function heroDeath() {
-    textAnimation('> Your nightmare is restarting', 2000);
-
+    textAnimation(`> SCORE: ${score}. Your nightmare is restarting`, 3000);
     img.src = 'img/events/death.jpg'
-    renderStamina(staminaValue);
-    renderHealth(healthValue);
+    renderStamina();
+    renderHealth();
     setTimeout(() => {
         init();
-    }, 5000);
-}
+    }, 4000);
+};
 
 function heroRevive() {
     textAnimation('> You have recieved a blessing', 2000);
     setTimeout(() => {
         staminaValue = 100;
         healthValue = 100;
-        renderStamina(0);
-        renderHealth(0);
+        renderStamina();
+        renderHealth();
         pray.disabled = true;
         textAnimation('> You feel refreshed', 2000);
     }, 2000);
-}
+};
 
 function checkStatus() {
     if (healthValue <= 0 || staminaValue <= 0) heroDeath();
     if (staminaValue >= 100) staminaValue = 100;
     if (healthValue >= 100) healthValue = 100;
-}
+};
 
 function textAnimation(text, time) {
+    log.innerText = '';
     log.innerText = text;
     setTimeout(() => {
         log.innerText = '> ';
     }, time);
-}
+};
 
-function choiceEvent() {
-    let text;
-    let favDrink = prompt("What's your favorite cocktail drink?", "Daiquiri");
-    switch (favDrink) {
-        case "Martini":
-            text = "Excellent choice. Martini is good for your soul.";
+function checkEvent() {
+    search.disabled = true;
+    switch (newMap[0].location) {
+        case 'MAPPA 12':
+            checkItems(book);
             break;
-        case "Daiquiri":
-            text = "Daiquiri is my favorite too!";
+        case 'MAPPA 4':
+            checkItems(eye);
             break;
-        case "Cosmopolitan":
-            text = "Really? Are you sure the Cosmopolitan is your favorite?";
+        case 'MAPPA 11':
+            textAnimation('You find the Portal', 2000);
             break;
         default:
-            text = "I have never heard of that one..";
+            textAnimation('You start searching...', 2000);
     }
-    document.getElementById("demo").innerHTML = text;
+};
+
+function checkItems(item) {
+    if (item.hidden == false) {
+        textAnimation(`You already have this ${item.id}`, 2000);
+    } else {
+        activateHiddenButton(item);
+        maps.forEach(element => {
+            switch (item) {
+                case weapon:
+                    element.btnDisableWeapon = false;
+                    break;
+                case armor:
+                    element.btnDisableArmor = false;
+                    break;
+                case book:
+                    element.btnDisableBook = false;
+                    break;
+                case eye:
+                    element.btnDisableEye = false;
+                    break;
+            }
+        });
+        textAnimation(`You find this ${item.id}`, 2000);
+    }
+};
+
+function activateHiddenButton(button) {
+    button.style.color = 'black';
+    button.style.opacity = 1;
+    button.hidden = false;
 }
-
-
-
 
