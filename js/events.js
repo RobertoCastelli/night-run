@@ -43,7 +43,7 @@ rest.addEventListener('click', () => {
     rest.disabled = true;
     let hoursRest = prompt('> how many hours you want to rest? ');
     let dice = diceRoll(100);
-    if (dice <= (5 * hoursRest)) {
+    if (dice <= (10 * hoursRest)) {
         position = [10, 10];
         renderMap();
     } else {
@@ -77,7 +77,9 @@ run.addEventListener('click', () => {
 });
 
 fight.addEventListener('click', () => {
-    (newMap[0].location != 'MAPPA 11') ? renderMonster(3) : renderMonster(0);
+    let boss = monsters.filter(element => element.name == 'Demogorgone');
+    let noBoss = monsters.filter(element => element.name != 'Demogorgone');
+    (newMap[0].location != 'MAPPA 11') ? renderMonster(noBoss, 3) : renderMonster(boss, 0);
 });
 
 roll.addEventListener('click', () => {
@@ -129,14 +131,14 @@ search.addEventListener('click', () => {
 weapon.addEventListener('click', () => {
     weapon.disabled = true;
     weapon.style.color = 'red';
-    hammerDamage += 20;
+    hammerDamage += 10;
     textAnimation('You brandish a nice hammer. You feel the power', 2000);
 });
 
 armor.addEventListener('click', () => {
     armor.disabled = true;
     armor.style.color = 'red';
-    armourDefence += 20;
+    armourDefence += 10;
     textAnimation('You wear a nice leather jacket. You look cool', 2000);
 });
 

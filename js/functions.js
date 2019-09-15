@@ -47,9 +47,10 @@ function renderMap() {
     weapon.hidden = newMap[0].btnDisableWeapon;
 };
 
-function renderMonster(mobs) {
-    dice = diceRoll(mobs);
+function renderMonster(monsters, range) {
+    dice = diceRoll(range);
     newMonster = monsters[dice];
+    newMonster.health = 50;
     img.src = newMonster.image;
     loc.innerText = newMonster.name;
     desc.innerText = newMonster.description;
@@ -62,7 +63,7 @@ function renderMonster(mobs) {
 function monsterAttack() {
     setTimeout(() => {
         if (newMonster.health >= 0) {
-            monsterDamage = (diceRoll(10) + newMonster.damage - armourDefence);
+            monsterDamage = (diceRoll(6) + newMonster.damage - armourDefence);
             healthValue -= monsterDamage;
             textAnimation(`> The Mob hits You for ${monsterDamage}`, 2000);
             checkStatus();
