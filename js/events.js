@@ -40,22 +40,20 @@ sx.addEventListener('click', () => {
 });
 
 rest.addEventListener('click', () => {
-    let hoursRest = prompt('> how many hours you want to rest? ', 'More your rest, more the risk');
+    rest.disabled = true;
+    let hoursRest = prompt('> how many hours you want to rest? ');
     let dice = diceRoll(100);
-    console.log(dice)
     if (dice <= (5 * hoursRest)) {
         position = [10, 10];
         renderMap();
     } else {
-        healthValue += Math.floor(healthValue * (hoursRest / staminaRatioRest));
-        staminaValue += Math.floor(staminaValue * (hoursRest / healthRatioRest));
+        staminaValue += (hoursRest * staminaRatioRest);
+        healthValue += (hoursRest * healthRatioRest);
         textAnimation(`You sleep ${hoursRest} hours and feel better`, 2000);
-        console.log(Math.floor(staminaValue * (hoursRest / healthRatioRest)))
     }
     checkStatus();
     renderHealth();
     renderStamina();
-    rest.disabled = true;
 });
 
 pray.addEventListener('click', () => diceRoll(12) % 2 != 0 ? heroRevive() : heroDeath());
@@ -79,9 +77,7 @@ run.addEventListener('click', () => {
 });
 
 fight.addEventListener('click', () => {
-    renderMonster()
-    run.disabled = true;
-    pray.disabled = true;
+    (newMap[0].location != 'MAPPA 11') ? renderMonster(3) : renderMonster(0);
 });
 
 roll.addEventListener('click', () => {
@@ -90,15 +86,31 @@ roll.addEventListener('click', () => {
 });
 
 eye.addEventListener('click', () => {
-    textAnimation('a wired pendant with incarved a green stone', 2000);
-})
+    if (newMap[0].location != 'MAPPA 11') {
+        textAnimation('a wired pendant with incarved a green stone', 2000);
+    } else {
+        eye.disabled = true;
+        activeEye = 1;
+        finalEvent();
+    }
+});
+
+book.addEventListener('click', () => {
+    if (newMap[0].location != 'MAPPA 11') {
+        textAnimation('a book with ritual words in it', 2000);
+    } else {
+        book.disabled = true;
+        activeBook = 1;
+        finalEvent();
+    }
+});
 
 search.addEventListener('click', () => {
     staminaValue -= staminaRatioSearch;
     renderStamina();
-    checkEvent();
+    checkEventItems();
     setTimeout(() => {
-        let dice = diceRoll(4);
+        let dice = diceRoll(30);
         switch (dice) {
             case 0:
             case 1:
@@ -117,14 +129,14 @@ search.addEventListener('click', () => {
 weapon.addEventListener('click', () => {
     weapon.disabled = true;
     weapon.style.color = 'red';
-    hammerDamage = 20;
+    hammerDamage += 20;
     textAnimation('You brandish a nice hammer. You feel the power', 2000);
 });
 
 armor.addEventListener('click', () => {
     armor.disabled = true;
     armor.style.color = 'red';
-    armourDefence = 20;
+    armourDefence += 20;
     textAnimation('You wear a nice leather jacket. You look cool', 2000);
 });
 

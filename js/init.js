@@ -42,22 +42,23 @@ let newMap;
 // INIT STATUS
 let healthValue = 100;
 let staminaValue = 100;
-let score = 0;
 
 // INIT POSITION
 let x = 0;
 let y = 0;
+let position = [x, y];
 posX.innerText = x;
 posY.innerText = y;
-let position = [x, y];
 
-// TWEAKINGS
+// TWEAKINGS FOR TEST
+let activeBook = 0;
+let activeEye = 0;
 let healthRatioRest = 10;
 let staminaRatioRest = 10;
 let staminaRatioMove = 10;
 let staminaRatioRun = 30;
 let staminaRatioAttack = 5;
-let staminaRatioSearch = 8;
+let staminaRatioSearch = 10;
 let hammerDamage = 0;
 let armourDefence = 0;
 renderStamina();

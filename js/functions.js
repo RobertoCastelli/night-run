@@ -47,14 +47,16 @@ function renderMap() {
     weapon.hidden = newMap[0].btnDisableWeapon;
 };
 
-function renderMonster() {
-    dice = diceRoll(3);
+function renderMonster(mobs) {
+    dice = diceRoll(mobs);
     newMonster = monsters[dice];
     img.src = newMonster.image;
     loc.innerText = newMonster.name;
     desc.innerText = newMonster.description;
     fight.disabled = true;
     roll.disabled = false;
+    pray.disabled = true;
+    run.disabled = true;
 };
 
 function monsterAttack() {
@@ -69,7 +71,6 @@ function monsterAttack() {
     }, 2000);
 };
 function monsterDeath() {
-    score += 10;
     img.src = 'img/events/monsterDeath.jpg';
     textAnimation('> You slay the monster.', 2000);
     setTimeout(() => {
@@ -89,7 +90,7 @@ function heroAttack(ratio) {
 };
 
 function heroDeath() {
-    textAnimation(`> SCORE: ${score}. Your nightmare is restarting`, 3000);
+    textAnimation(`> Your nightmare is restarting`, 3000);
     img.src = 'img/events/death.jpg'
     renderStamina();
     renderHealth();
@@ -124,7 +125,7 @@ function textAnimation(text, time) {
     }, time);
 };
 
-function checkEvent() {
+function checkEventItems() {
     search.disabled = true;
     switch (newMap[0].location) {
         case 'MAPPA 12':
@@ -133,9 +134,6 @@ function checkEvent() {
         case 'MAPPA 4':
             checkItems(eye);
             break;
-        case 'MAPPA 11':
-            textAnimation('You find the Portal', 2000);
-            break;
         default:
             textAnimation('You start searching...', 2000);
     }
@@ -143,7 +141,7 @@ function checkEvent() {
 
 function checkItems(item) {
     if (item.hidden == false) {
-        textAnimation(`You already have this ${item.id}`, 2000);
+        textAnimation(`You have this ${item.id}`, 2000);
     } else {
         activateHiddenButton(item);
         maps.forEach(element => {
@@ -171,4 +169,32 @@ function activateHiddenButton(button) {
     button.style.opacity = 1;
     button.hidden = false;
 }
+
+function finalEvent() {
+    if (activeBook == 1 && activeEye == 1) {
+        textAnimation('You start the ritual', 2000);
+        book.classList.add('glow');
+        search.disabled = true;
+        rest.disabled = true;
+        fight.disabled = false;
+    }
+    else if (activeBook == 1 && activeEye == 0) {
+        textAnimation('You start reading. No REST or PREYers can save you', 2000);
+        book.disabled = false;
+        healthValue -= 30;
+        activeBook = 0;
+        renderHealth();
+        renderStamina();
+        checkStatus();
+    }
+    else if (activeBook == 0 && activeEye == 1) {
+        textAnimation('Trees crumble blocking the path to the WEST', 2000);
+        sx.disabled = true;
+        eye.classList.add('glow');
+    }
+}
+
+
+
+
 

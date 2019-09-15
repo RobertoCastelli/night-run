@@ -236,3 +236,14 @@ footer {
 }
 
 
+.glow {
+    animation-name: glowing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes glowing {
+  from {color: black;}
+  to {color: red;}
+}
