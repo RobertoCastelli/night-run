@@ -52,14 +52,15 @@ posY.innerText = y;
 // TWEAKINGS FOR TEST
 let activeBook = 0;
 let activeEye = 0;
+let ritual = 0;
 let healthRatioRest = 10;
 let staminaRatioRest = 10;
 let staminaRatioMove = 5;
 let staminaRatioRun = 30;
 let staminaRatioAttack = 5;
 let staminaRatioSearch = 10;
-let hammerDamage = 5;
-let armourDefence = 0;
+let hammerDamage = 30;
+let armourDefence = 5;
 renderStamina();
 renderHealth();
 renderMap();

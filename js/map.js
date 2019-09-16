@@ -2,7 +2,7 @@
 const maps = [
     {
         location: 'MAPPA 0',
-        description: 'Your eyes open...These rays of light that penetrate the darkness are a blessing. However there something hidden in this abnormal quietness. Where am I?',
+        description: 'These rays of light that penetrate the darkness are a blessing. However there something hidden in this abnormal quietness. Where am I?',
         position: [0, 0],
         image: 'img/maps/start-woods.jpg',
         log: '>',
@@ -283,6 +283,28 @@ const maps = [
         btnDisableWeapon: true
     },
     {
+        location: 'MAPPA 13',
+        description: 'You pass the portal. Another nightmare begins: Time to go to work...',
+        position: [1, 3],
+        image: 'img/events/wakeup.jpg',
+        log: '>',
+        btnDisableUp: true,
+        btnDisableDw: true,
+        btnDisableDx: true,
+        btnDisableSx: true,
+        btnDisableFight: true,
+        btnDisableRun: true,
+        btnDisableRest: true,
+        btnDisablePray: true,
+        btnDisableRoll: true,
+        btnDisableSearch: true,
+        btnDisableBook: true,
+        btnDisableGuide: false,
+        btnDisableEye: true,
+        btnDisableArmor: true,
+        btnDisableWeapon: true
+    },
+    {
         location: 'INCUBO',
         description: 'Wake up',
         position: [10, 10],
@@ -304,27 +326,5 @@ const maps = [
         btnDisableArmor: true,
         btnDisableWeapon: true
     },
-    {
-        location: 'FINAL BOSS',
-        description: 'Wake up',
-        position: [20, 20],
-        image: 'img/events/incubo.jpg',
-        log: '>',
-        btnDisableUp: true,
-        btnDisableDw: true,
-        btnDisableDx: true,
-        btnDisableSx: true,
-        btnDisableFight: true,
-        btnDisableRun: true,
-        btnDisableRest: true,
-        btnDisablePray: false,
-        btnDisableRoll: false,
-        btnDisableSearch: true,
-        btnDisableBook: true,
-        btnDisableGuide: false,
-        btnDisableEye: true,
-        btnDisableArmor: true,
-        btnDisableWeapon: true
-    }
 ]
 

@@ -131,14 +131,12 @@ search.addEventListener('click', () => {
 weapon.addEventListener('click', () => {
     weapon.disabled = true;
     weapon.style.color = 'red';
-    hammerDamage += 5;
     textAnimation('You brandish a nice hammer. You feel the power', 2000);
 });
 
 armor.addEventListener('click', () => {
     armor.disabled = true;
     armor.style.color = 'red';
-    armourDefence += 5;
     textAnimation('You wear a nice leather jacket. You look cool', 2000);
 });
 
