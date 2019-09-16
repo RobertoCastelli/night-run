@@ -82,12 +82,12 @@ function monsterDeath() {
     }, 2000);
 };
 
-function heroAttack(ratio) {
+function heroAttack(base, hammer) {
     staminaValue -= staminaRatioAttack;
     renderStamina();
-    let myDamage = diceRoll(10);
-    newMonster.health -= (myDamage + ratio);
-    textAnimation(`> You hit for ${myDamage + ratio}`, 2000);
+    let myDamage = diceRoll(base);
+    newMonster.health -= (myDamage + hammer);
+    textAnimation(`> You hit for ${myDamage + hammer}`, 2000);
     checkStatus();
     if (newMonster.health <= 0) monsterDeath();
 }
