@@ -24,7 +24,6 @@ function renderHealth() {
 };
 
 function renderMap() {
-
     newMap = maps
         .filter(element => JSON.stringify(element.position) == JSON.stringify(position));
     loc.innerText = newMap[0].location;
@@ -46,7 +45,7 @@ function renderMap() {
     guide.disabled = newMap[0].btnDisableGuide;
     armor.hidden = newMap[0].btnDisableArmor;
     weapon.hidden = newMap[0].btnDisableWeapon;
-    if (ritual == 1) dw.disabled = false;
+    if (ritual == 1 && newMap[0].location == "MAPPA 11") dw.disabled = false;
 };
 
 function renderMonster(monsters, range) {
