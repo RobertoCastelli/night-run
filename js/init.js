@@ -1,11 +1,15 @@
 /**
- * storia --> occhio --> libro --> sylbol --> pozzo --> combattimento finale --> rituale
+ * <-- TODO --->
+ * intro decente
+ * storia 
  * fare guida
- * search: > % rischio < % trovare oggetti
- * sistema di score
- * inserire UL per i log
- * inserire animazioni --> musica --> pop up --> barre energia/vita
- * finale
+ * cambiare gli alert di default
+ * aumentare % rischio mob in base al n° di search nella stessa mappa
+ * inserire sistema di score & schermata score finale
+ * cambiare i LOG setTimeout() con degli UL/LI per avere uno storico
+ * inserire animazioni --> musica -->  
+ * inserire progress bar per energia/vita
+ * inserire inventario con oggetti selezionabili
  */
 
 // VARIABLES
@@ -49,7 +53,7 @@ let position = [x, y];
 posX.innerText = x;
 posY.innerText = y;
 
-// TWEAKINGS FOR TEST
+// TWEAKINGS FOR CALIBRATION
 let activeBook = 0;
 let activeEye = 0;
 let ritual = 0;
@@ -63,6 +67,8 @@ let ratioItemDrop = 25;
 let baseDamage = 15;
 let hammerDamage = 0;
 let armourDefence = 0;
+
+//INIT LOAD
 renderStamina();
 renderHealth();
 renderMap();

@@ -1,4 +1,3 @@
-// LISTENERS
 up.addEventListener('click', () => {
     x++;
     posX.innerText = x;
@@ -59,6 +58,7 @@ rest.addEventListener('click', () => {
 pray.addEventListener('click', () => diceRoll(12) % 2 != 0 ? heroRevive() : heroDeath());
 
 run.addEventListener('click', () => {
+    // RUN TO RANDOM MAP
     if (diceRoll(100) <= 30) {
         x = diceRoll(2);
         y = diceRoll(2);
@@ -79,6 +79,7 @@ run.addEventListener('click', () => {
 fight.addEventListener('click', () => {
     let boss = monsters.filter(element => element.name == 'Demogorgone');
     let noBoss = monsters.filter(element => element.name != 'Demogorgone');
+    // ONLY BOOS SPAWN AT MAP 11.. RANDOM FOR THE OTHER MAPS
     (newMap[0].location != 'MAPPA 11') ? renderMonster(noBoss, 3) : renderMonster(boss, 0);
 });
 
@@ -88,6 +89,7 @@ roll.addEventListener('click', () => {
 });
 
 eye.addEventListener('click', () => {
+    // ACTIVATE EYE ONLY ON MAP 11
     if (newMap[0].location != 'MAPPA 11') {
         textAnimation('a wired pendant with incarved a green stone', 2000);
     } else {
@@ -98,6 +100,7 @@ eye.addEventListener('click', () => {
 });
 
 book.addEventListener('click', () => {
+    // ACTIVATE BOOK ONLY ON MAP 11
     if (newMap[0].location != 'MAPPA 11') {
         textAnimation('a book with ritual words in it', 2000);
     } else {
@@ -131,6 +134,7 @@ search.addEventListener('click', () => {
 weapon.addEventListener('click', () => {
     weapon.disabled = true;
     weapon.style.color = 'red';
+    // + DAMAGE HAMMER
     hammerDamage = 5;
     textAnimation('You brandish a nice hammer. You feel the power', 2000);
 });
@@ -138,10 +142,12 @@ weapon.addEventListener('click', () => {
 armor.addEventListener('click', () => {
     armor.disabled = true;
     armor.style.color = 'red';
+    // + DEFENCE ARMOUR
     armourDefence = 5;
     textAnimation('You wear a nice leather jacket. You look cool', 2000);
 });
 
 guide.addEventListener('click', () => {
+    // TODO --> DECENT GUIDE
     alert('Go around and survive, I will put a nice guide later');
 })

@@ -1,4 +1,4 @@
-
+// ARRAY MAPS
 const maps = [
     {
         location: 'MAPPA 0',

@@ -1,3 +1,4 @@
+// ARRAY MOBS
 const monsters = [
     {
         name: 'Demogorgone',
@@ -21,7 +22,7 @@ const monsters = [
         image: '/img/mobs/freddy.jpg'
     },
     {
-        name: 'Hellraiser',
+        name: 'Jason brother',
         description: 'A killer',
         health: 50,
         damage: 6,
